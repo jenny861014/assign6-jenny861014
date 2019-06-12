@@ -6,15 +6,19 @@ class Cabbage extends Item{
   }
   
   void display(){
+    if(isAlive){
     image(cabbage, x, y);
+    }
   }
   
   void checkCollision(Player player){
       if(player.health < player.PLAYER_MAX_HEALTH
         && isHit(x, y, SOIL_SIZE, SOIL_SIZE, player.x, player.y, player.w, player.h)){
           player.health ++;
-          x = y = -1000;
           isAlive = false;
+          if(isAlive==false){
+          x=y=-1000;
+        }
       }
   }
   
